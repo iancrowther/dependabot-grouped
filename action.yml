@@ -1,10 +1,10 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
-inputs:
-  repo-token:
-    description: 'bob'
-    required: true
-    default: 'bob'
+# inputs:
+#   repo-token:
+#     description: 'bob'
+#     required: true
+#     default: 'bob'
 outputs:
   repos:
     description: repo list

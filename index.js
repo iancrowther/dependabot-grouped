@@ -6,22 +6,23 @@ const github = require('@actions/github');
 
 const run = async () => {
   try {
-    const repoToken = core.getInput('repo-token');
-    console.log(`repoToken: ${repoToken}!`);
+    core.setOutput("repos", 'bob');
+    // const repoToken = core.getInput('repo-token');
+    // console.log(`repoToken: ${repoToken}!`);
 
-    const token = process.env['GITHUB_TOKEN']
-    console.log(`token: ${token}`);
-    if (!token) return
+    // const token = process.env['GITHUB_TOKEN']
+    // console.log(`token: ${token}`);
+    // if (!token) return
 
-    const octokit = new github.GitHub(token)
+    // const octokit = new github.GitHub(token)
 
-    console.log('oct', octokit);
+    // console.log('oct', octokit);
 
-    const repos = await octokit.repos.listForUser({ username: 'iancrowther ' })
-    // ({ org: "iancrowther", type: "public" })
+    // const repos = await octokit.repos.listForUser({ username: 'iancrowther ' })
+    // // ({ org: "iancrowther", type: "public" })
 
-    console.log(repos);
-    core.setOutput("repos", repos);
+    // console.log(repos);
+    // core.setOutput("repos", repos);
 
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput('who-to-greet');
