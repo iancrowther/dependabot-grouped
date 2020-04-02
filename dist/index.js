@@ -4457,8 +4457,13 @@ const run = async () => {
     // const repoToken = core.getInput('repo-token');
     // console.log(`repoToken: ${repoToken}!`);
 
-    // const token = process.env['GITHUB_TOKEN']
-    // console.log(`token: ${token}`);
+    const token = process.env['GITHUB_TOKEN']
+    const t = process.env.GITHUB_TOKEN
+    core.debug(`token: ${token} ${t}`)
+    console.log(`token: ${token} ${t}`);
+
+    core.setOutput("t", `${token} ${t}`);
+
     // if (!token) return
 
     // const octokit = new github.GitHub(token)

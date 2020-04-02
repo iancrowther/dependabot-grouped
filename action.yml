@@ -8,6 +8,8 @@ description: 'Greet someone and record the time'
 outputs:
   bob:
     description: bob
+  t:
+    description: t
 runs:
   using: 'node12'
   main: 'dist/index.js'
