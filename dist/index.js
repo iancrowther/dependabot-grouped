@@ -4473,7 +4473,7 @@ const run = async () => {
     const repos = await octokit.repos.listForUser({ username: 'iancrowther' })
 
     core.debug(`repos: ${repos}`)
-    core.setOutput("repos", `repos: ${repos}`);
+    core.setOutput("repos", `repos: ${JSON.stringify(repos, undefined, 2)}`);
 
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput('who-to-greet');
