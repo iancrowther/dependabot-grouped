@@ -13,9 +13,3 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 ### `time`
 
 The time we greeted you.
-
-## Example usage
-
-uses: iancrowther/dependabot-grouped@v1.0.2
-with:
-  who-to-greet: 'Mona the Octocat'
