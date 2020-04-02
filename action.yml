@@ -10,6 +10,8 @@ outputs:
     description: bob
   t:
     description: t
+  repos:
+    description: repos
 runs:
   using: 'node12'
   main: 'dist/index.js'

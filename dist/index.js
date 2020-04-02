@@ -4466,15 +4466,14 @@ const run = async () => {
 
     // if (!token) return
 
-    // const octokit = new github.GitHub(token)
+    const octokit = new github.GitHub(token)
 
     // console.log('oct', octokit);
 
-    // const repos = await octokit.repos.listForUser({ username: 'iancrowther ' })
-    // // ({ org: "iancrowther", type: "public" })
+    const repos = await octokit.repos.listForUser({ username: 'iancrowther' })
 
-    // console.log(repos);
-    // core.setOutput("repos", repos);
+    core.debug(`repos: ${repos}`)
+    core.setOutput("repos", `repos: ${repos}`);
 
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput('who-to-greet');
