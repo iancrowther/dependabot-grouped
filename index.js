@@ -7,11 +7,13 @@ const github = require('@actions/github');
 const run = async () => {
   try {
     const token = process.env['GITHUB_TOKEN']
+    console.log(`token: ${token}`);
     if (!token) return
 
     const octokit = new github.GitHub(token)
-
-    const repos = await octokit.repos.listForOrg({ org: "iancrowther", type: "public" })
+    console.log('oct', octokit);
+    const repos = await octokit.repos.listForUser({ username: 'iancrowther ' })
+    // ({ org: "iancrowther", type: "public" })
 
     console.log(repos);
     core.setOutput("repos", repos);
