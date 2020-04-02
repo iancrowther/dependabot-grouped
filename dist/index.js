@@ -4453,15 +4453,23 @@ const github = __webpack_require__(351);
 
 const run = async () => {
   try {
-    const token = process.env['GITHUB_TOKEN']
-    if (!token) return
+    core.setOutput("bob", 'bob');
+    // const repoToken = core.getInput('repo-token');
+    // console.log(`repoToken: ${repoToken}!`);
 
-    const octokit = new github.GitHub(token)
+    // const token = process.env['GITHUB_TOKEN']
+    // console.log(`token: ${token}`);
+    // if (!token) return
 
-    const repos = await octokit.repos.listForOrg({ org: "iancrowther", type: "public" })
+    // const octokit = new github.GitHub(token)
 
-    console.log(repos);
-    core.setOutput("repos", repos);
+    // console.log('oct', octokit);
+
+    // const repos = await octokit.repos.listForUser({ username: 'iancrowther ' })
+    // // ({ org: "iancrowther", type: "public" })
+
+    // console.log(repos);
+    // core.setOutput("repos", repos);
 
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput('who-to-greet');

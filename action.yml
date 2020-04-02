@@ -6,8 +6,8 @@ description: 'Greet someone and record the time'
 #     required: true
 #     default: 'bob'
 outputs:
-  repos:
-    description: repo list
+  bob:
+    description: bob
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -6,7 +6,7 @@ const github = require('@actions/github');
 
 const run = async () => {
   try {
-    core.setOutput("repos", 'bob');
+    core.setOutput("bob", 'bob');
     // const repoToken = core.getInput('repo-token');
     // console.log(`repoToken: ${repoToken}!`);
 
