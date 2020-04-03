@@ -1,32 +1,39 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-// const { Octokit } = require("@octokit/rest");
-
-// const octokit = new Octokit();
+const npm = require('npm');
 
 const run = async () => {
   try {
-    core.setOutput("bob", 'bob');
-    // const repoToken = core.getInput('repo-token');
-    // console.log(`repoToken: ${repoToken}!`);
-
-    const token = process.env['GITHUB_TOKEN']
-    const t = process.env.GITHUB_TOKEN
-    core.debug(`token: ${token} ${t}`)
-    console.log(`token: ${token} ${t}`);
-
-    core.setOutput("t", `${token} ${t}`);
-
+    // const token = process.env['GITHUB_TOKEN'] || 'bob'
     // if (!token) return
 
-    const octokit = new github.GitHub(token)
+    npm.load({ save: true }, function () {
+      npm.commands.update({ json: true }, function (err, data) {
+        core.debug(`d: ${data}`);
+        npm.commands.update(function (err, d) {
+          console.log(d);
+        });
+      });
+    });
 
-    // console.log('oct', octokit);
+    // exec('ncu', (err, stdout, stderr) => {
+    //   if (err) {
+    //     core.debug(`err: ${err}`)
+    //     return;
+    //   }
 
-    const repos = await octokit.repos.listForUser({ username: 'iancrowther' })
+    //   // the *entire* stdout and stderr (buffered)
+    //   core.debug(`stdout: ${stdout}`);
+    //   core.debug(`stderr: ${stderr}`);
+    // });
 
-    core.debug(`repos: ${repos}`)
-    core.setOutput("repos", `repos: ${JSON.stringify(repos, undefined, 2)}`);
+    // const octokit = new github.GitHub(token)
+
+    // const prs = await octokit.pulls.list({ owner: 'iancrowther', per_page: 2 })
+
+    // core.setOutput("bob", 'bob');
+    // core.debug(`repos: ${repos}`)
+    // core.setOutput("repos", `repos: ${JSON.stringify(repos, undefined, 2)}`);
 
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput('who-to-greet');

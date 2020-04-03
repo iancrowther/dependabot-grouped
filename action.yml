@@ -6,12 +6,8 @@ description: 'Greet someone and record the time'
 #     required: true
 #     default: 'bob'
 outputs:
-  bob:
-    description: bob
-  t:
-    description: t
-  repos:
-    description: repos
+  pull_requests:
+    description: a list of dependabot repos
 runs:
   using: 'node12'
   main: 'dist/index.js'
